@@ -146,7 +146,7 @@ private:
   Type itemVertex;
   int index;
 public:
-  Vertex();  
+  Vertex();
   int getIndex(){
     return index;
   }
@@ -173,13 +173,11 @@ Vertex<Type>::Vertex(){
 }
 
 
-
 template <typename Type>
 class Graph{
 private:
   Vertex<Type> * vertex;
   int order,sizeGraph;
-
   void destroy();
 public:
   Graph();

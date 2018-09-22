@@ -1,6 +1,7 @@
 #include<iostream>
 #include "AdjacentList.h"
 #include "DepthFirstSearch.h"
+#include "BreadthFirstSearch.h"
 using namespace std;
 
 int main(){
@@ -14,18 +15,23 @@ int main(){
   g->insertEdge(2, 4);
   g->printGraph();
   cout << g->getOrder() << " " << g->getSizeGraph() << endl;
-  //
   cout << endl;
-  DFS<int> * h = new DFS<int>(5);
-  h->dfs(g);
-  h->dfsMap(g);
+
+  DFS<int> * d = new DFS<int>(5);
+  d->dfs(g);
+  d->dfsMap(g);
   cout << endl;
-  h->topologicalSort(g);
+  d->topologicalSort(g);
   cout << endl;
-  h->dfsMap(g);
+  d->dfsMap(g);
+
+
+  cout << endl;
+  BFS<int> * b = new BFS<int>(5);
+  b->bfs(g,1);
+  b->bfsMap(g);
   g->destroyGraph();
 
-  delete g;
-  delete h;
+  delete g,d,b;
   return 0;
 }

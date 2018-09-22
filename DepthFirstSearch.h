@@ -12,12 +12,49 @@ private:
   string * colorArray;
   int times;
   void dfsVisit(Graph<Type>*,int);
+  int highestValue(int*,int);
 public:
   DFS(int);
   void dfs(Graph<Type>*);
   void dfsMap(Graph<Type> *);
   LinkedList<Vertex<Type>> * topologicalSort(Graph<Type> *);
-  int highestValue(int*,int);
+
+  Graph<Type> * getG(){
+    return g;
+  }
+  void setG(Graph<Type> * g){
+    this->g = g;
+  }
+  int * getPrevVertexArray(){
+    return prevVertexArray;
+  }
+  void setPrevVertexArray(int * prevVertexArray){
+    this->prevVertexArray = prevVertexArray;
+  }
+  int * getDiscoveryTime(){
+    return discoveryTime;
+  }
+  void setDiscoveryTime(int * discoveryTime){
+    this->discoveryTime = discoveryTime;
+  }
+  int * getFinishTime(){
+    return finishTime;
+  }
+  void setFinishTime(int * finishTime){
+    this->finishTime = finishTime;
+  }
+  string * getColorArray(){
+    return colorArray;
+  }
+  void setColorArray(string * colorArray){
+    this->colorArray = colorArray;
+  }
+  int getTimes(){
+    return times;
+  }
+  void setTimes(int times){
+    this->times = times;
+  }
 };
 
 template<typename Type>
@@ -31,9 +68,7 @@ DFS<Type>::DFS(int order){
 
 template<typename Type>
 void DFS<Type>::dfs(Graph<Type> * g){
-  for(int i = 1; i <= g->getOrder(); i++){
-    colorArray[i] = "White";
-  }
+  for(int i = 1; i <= g->getOrder(); i++) colorArray[i] = "White";
   times=0;
   for(int i = 1; i<= g->getOrder(); i++){
     if(colorArray[i] == "White"){
